@@ -1,10 +1,5 @@
 $(document).ready(function(){
 
-
-    // $(".portfolio_item li").mouseenter(function(){
-    //     $(this).stop().siblings().animate({opacity:.6});
-    //     $(this).stop().animate({opacity:1});
-    // });
             //section1 h1(GSAP)
             let logo_p = $("#logo p");
             gsap.to(logo_p,{
@@ -17,6 +12,7 @@ $(document).ready(function(){
                     from: "random"
                 }
             },2.5);
+
             //section1 header(GSAP)
             let header = $(".pc_tablet_nav ul li");
     
@@ -32,22 +28,7 @@ $(document).ready(function(){
             },2.5);
     
     
-            //section4 portfolio_item(GSAP)
-            function section4(){
-                let portfolio_item = $(".portfolio_item li");
-                gsap.to(portfolio_item,{
-                    scale: 1,
-                    opacity: 1,
-                    duration: 2,
-                    stagger:{
-                        each: .5,
-                        amount: 3,
-                        ease: "power 2.in",
-                        from:"random"
-                    }
-        
-                },3);
-            }            
+               
 
 
             $(window).scroll(function(){
@@ -62,7 +43,20 @@ $(document).ready(function(){
     
                     //section2
                     if($("#section4").hasClass("show")){
-                        section4();
+                        //section4 portfolio_item(GSAP)
+                            let portfolio_item = $(".portfolio_item li");
+                            gsap.to(portfolio_item,{
+                                scale: 1,
+                                opacity: 1,
+                                duration: 2,
+                                stagger:{
+                                    each: .5,
+                                    amount: 3,
+                                    ease: "power 2.in",
+                                    from:"random"
+                                }
+                    
+                            },2);    
                     }
     
     
