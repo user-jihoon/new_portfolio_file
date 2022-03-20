@@ -26,10 +26,12 @@ $(document).ready(function(){
                     from: "end"
                 }
             },2.5);
-    
-    
-               
 
+
+            $(".portfolio_item li").each(function(index){
+
+                $(this).stop().css({transition: index*0.5+"s"});
+            });
 
             $(window).scroll(function(){
                 let scrollTop = $(this).scrollTop();
@@ -41,21 +43,18 @@ $(document).ready(function(){
                         $(this).stop().addClass("show");
                     }
     
-                    //section2
+                    //section4
+                    const portfolio_item = $(".portfolio_item li");
                     if($("#section4").hasClass("show")){
-                        //section4 portfolio_item(GSAP)
-                            let portfolio_item = $(".portfolio_item li");
+                        //section4 portfolio_item(GSAP)                      
                             gsap.to(portfolio_item,{
-                                scale: 1,
                                 opacity: 1,
-                                duration: 2,
+                                scale: 1,
                                 stagger:{
-                                    each: .5,
-                                    amount: 3,
-                                    ease: "power 2.in",
-                                    from:"random"
+                                    each: 1,
+                                    amount: 1,
+                                    from:"start"
                                 }
-                    
                             },2);    
                     }
     
@@ -68,6 +67,17 @@ $(document).ready(function(){
             });
 
 
+            //portfolio_item li
+            $(".portfolio_item li").mouseenter(function(){
+                $(".portfolio_item li").stop().removeClass("on");
+                $(this).stop().addClass("on");
+            });
+            $(".portfolio_item li").mouseleave(function(){
+                $(".portfolio_item li").stop().removeClass("on");
+            });
+
+
+            //햄버거 버튼
             $(".hamburger").click(function(){
                 $(this).stop().toggleClass("on");
 
@@ -79,6 +89,7 @@ $(document).ready(function(){
                 }
             });
 
+            // 네이게이션
             $("nav ul li").click(function(){
                 let idx = $(this).index();
                 let section_top = $("section").eq(idx).offset().top;
